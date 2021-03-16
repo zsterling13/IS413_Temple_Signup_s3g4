@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Sign Up Form";
+}
+@model IS413_Temple_Signup_ZS.Models.tourGroup
+
+<div class="text-center">
+    <h1 class="display-4">Sign Up Form</h1>
+</div>
+
+<form asp-action="SignUpForm" method="post">
+    <label asp-for="groupName">
+        Name of Group
+    </label>
+    <input type="text" asp-for="groupName" />
+
+    <label asp-for="groupSize">
+        Size of Group
+    </label>
+    <input type="text" asp-for="groupSize" />
+
+    <label asp-for="emailAddress">
+        Email Address
+    </label>
+    <input type="text" asp-for="emailAddress" />
+
+    <label asp-for="phoneNumber">
+        Phone Number (Optional)
+    </label>
+    <input type="text" asp-for="phoneNumber" />
+
+    <button type="submit" id="button">Submit it</button>
+
+</form>
+
+<div asp-validation-summary="All"></div>

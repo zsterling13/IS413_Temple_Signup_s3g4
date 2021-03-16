@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "View Set Appointments";
+}
+@model IEnumerable<tourGroup>
+
+<div class="text-center">
+    <h1 class="display-4">View Set Appointments</h1>
+</div>
+
+<div class="text-center col-12">
+    <div class="text-center">
+        <table class="center table table-striped table-bordered table-hover table-info">
+            <thead>
+                <tr>
+                    <th>Group ID</th>
+                    <th>Group Name</th>
+                    <th>Group Size</th>
+                    <th>Email Address</th>
+                    <th>Phone Number</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!--Loops through all of the submitted restaurants to print them out here.-->
+                <!--Information to loop through is located in a seperate .cshtml file called BookSummary.cshtml, which is imported into here-->
+                @foreach (var x in Model)
+                {
+                    <partial name="GroupSummary" model="x" />
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
