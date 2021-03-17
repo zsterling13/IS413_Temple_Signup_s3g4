@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IS413_Temple_Signup_ZS.Migrations
 {
     [DbContext(typeof(tourGroupContext))]
-    [Migration("20210317014532_Initial")]
+    [Migration("20210317194604_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

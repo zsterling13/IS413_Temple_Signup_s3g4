@@ -23,7 +23,7 @@ namespace IS413_Temple_Signup_ZS.Controllers
         }
 
         //Determines how many time slote are displayed per page
-        public int ItemsPerPage = 35;
+        //public int ItemsPerPage = _context.timeSlots.Count();
 
         public IActionResult Index()
         {
@@ -41,21 +41,11 @@ namespace IS413_Temple_Signup_ZS.Controllers
         {
             if (ModelState.IsValid == true)
             {
-                //submittedForm.tourGroup.tourTime = submittedForm.timeSlot.scheduleInfo;
-
-                //string test2 = "(from p in _context.timeSlots where p.scheduleInfo.ToString() ==" + submittedForm.tourGroup.tourTime + "select p).SingleOrDefault();";
-
                 _context.Groups.Add(submittedForm.tourGroup);
-                //_context.timeSlots.
-                //new timeSlot pleaseWork = _context.timeSlots.Where(p => p.slotID == submittedForm.timeSlot.slotID).Take(1);
                 
                 _context.SaveChanges();
 
-                //timeSlot test = (from p in _context.timeSlots where p.slotID == 5 select p).SingleOrDefault();
-
                 IQueryable<timeSlot> test = _context.timeSlots.Where(p => p.slotID == submittedForm.timeSlot.slotID);
-
-                //test.SingleOrDefault();
 
                 foreach(var x in test)
                 {
@@ -63,15 +53,6 @@ namespace IS413_Temple_Signup_ZS.Controllers
                 }
 
                 _context.SaveChanges();
-
-                //timeSlot testf = _context.timeSlots.Where(c => c.slotID == submittedForm.timeSlot.slotID).Single();
-
-                //testf.availablility = false;
-
-                //_context.timeSlots.Update(submittedForm.timeSlot.);
-
-                //_context.timeSlots.Update(c => c. )   .Where(p => p.slotID == submittedForm.timeSlot.slotID).ToList().Update(c => { c.availablility = false; return c; });
-                //_context.timeSlots.Where(p => p.slotID == submittedForm.timeSlot.slotID).ToList();
 
                 return View("Index");
             }
@@ -84,7 +65,7 @@ namespace IS413_Temple_Signup_ZS.Controllers
         [HttpGet]
         public IActionResult SlotAvailability()
         {
-            return View(_context.timeSlots.OrderBy(p => p.scheduleInfo).Take(ItemsPerPage));
+            return View(_context.timeSlots.OrderBy(p => p.scheduleInfo));
         }
 
         [HttpPost]

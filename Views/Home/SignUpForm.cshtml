@@ -17,7 +17,7 @@
     <input asp-for="timeSlot.scheduleInfo" type="hidden" value="@Model.timeSlot.scheduleInfo" />
     <input asp-for="timeSlot.availablility" type="hidden" value="false" />
     <input asp-for="timeSlot.slotID" type="hidden" value="@Model.timeSlot.slotID" />
-    <input asp-for="tourGroup.tourTime" type="hidden" value="@Model.timeSlot.ToString()" />
+    <input asp-for="tourGroup.tourTime" type="hidden" value="@Model.timeSlot.scheduleInfo.ToString()" />
 
     <label asp-for="tourGroup.groupName">
         Name of Group
