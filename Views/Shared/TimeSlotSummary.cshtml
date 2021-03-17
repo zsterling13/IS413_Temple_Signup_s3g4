@@ -4,11 +4,12 @@
 @{
 }
 @model timeSlot
-<!--Dynamically input appropriate values from each Book entry by reference to the database-->
+<!--Dynamically input appropriate values from each possible time slots by reference to the database-->
 <tr id="highlight">
     <td>@Model.scheduleInfo.Month / @Model.scheduleInfo.Day / @Model.scheduleInfo.Year</td>
     <td>@Model.scheduleInfo.ToShortTimeString()</td>
     <td>
+        <!--loops through and adds a button to the table of when to add for time slots-->
         @if(@Model.availablility == true)
         { 
             <form id="@Model.slotID" asp-page="/Home/SignUpForm" method="post">
@@ -22,6 +23,8 @@
                 </span>
             </form>
         }
+        
+        <!--If the time slot is not available then display it as not available rather than giving a signup button-->
         else
         {
             <p class="bg-danger">Time Slot Taken</p>

@@ -9,6 +9,7 @@
 
 <div class="text-center col-12">
     <div class="text-center">
+        <!--Create a table that displays registered groups and their assigned times-->
         <table class="center table table-striped table-bordered table-hover table-info">
             <thead>
                 <tr>
@@ -22,8 +23,8 @@
             </thead>
 
             <tbody>
-                <!--Loops through all of the submitted restaurants to print them out here.-->
-                <!--Information to loop through is located in a seperate .cshtml file called BookSummary.cshtml, which is imported into here-->
+                <!--Loops through all of the signed-up groups to print them out here.-->
+                <!--Information to loop through is located in a seperate .cshtml file called GroupSummary.cshtml, which is imported into here-->
                 @foreach (var x in Model)
                 {
                     <partial name="GroupSummary" model="x" />
