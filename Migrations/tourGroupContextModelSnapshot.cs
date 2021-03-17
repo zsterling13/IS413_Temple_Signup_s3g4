@@ -53,6 +53,9 @@ namespace IS413_Temple_Signup_ZS.Migrations
                     b.Property<string>("phoneNumber")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("tourTime")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("groupID");
 
                     b.ToTable("Groups");

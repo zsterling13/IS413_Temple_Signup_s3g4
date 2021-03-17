@@ -3,13 +3,14 @@
 }
 <div class="row">
     <div class="text-center col-sm-6">
-        <img class="col-12" src="~/img/layton_temple.jpg" alt="Layton Temple Image" />
+        <img class="col-12 rounded" src="~/img/layton_temple.jpg" alt="Layton Temple Image" />
         
         <br /> <br />
 
-        <button class="btn btn-primary">Sign Up</button>
+        <!--a tag link disguised as a redirection button that navigates the user to the Slot Availability View-->
+               <a class="btn btn-primary" asp-action="SlotAvailability">Sign Up</a>
     </div>
-
+    @* A bunch of text to just make it look pretty and it's put into columns.  *@
     <div class="col-sm-6">
         <br />
         <h3>Layton Utah Temple Tours</h3> <br />
@@ -58,6 +59,7 @@
         </h5> <br />
 
         <div>
+            @* a link for where the temple is. That's pretty neat *@
             <h5>
                 Location: <a href="https://www.google.com/maps/search/?api=1&amp;query=1500+E+Oak+Hills+Drive+Layton+UT+84040"
                              title="Show Map">

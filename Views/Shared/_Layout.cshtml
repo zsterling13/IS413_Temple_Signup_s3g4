@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Layout page has all of the base info for all pages. -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
@@ -9,6 +10,7 @@
 </head>
 <body>
     <header>
+        <!--ALl of the links to other pages-->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Temple Tour Sign Up</a>
@@ -27,20 +29,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ViewAppointments">View Appointments</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SignUpForm">Sign Up Form</a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <div class="container">
+        <!--Rendering the main body inside/below/above all the other information-->
         <main role="main">
             @RenderBody()
         </main>
     </div>
 
+    <!--Foorter for all pages-->
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - Temple Tour Sign Up

@@ -27,6 +27,8 @@ namespace IS413_Temple_Signup_ZS
         {
             services.AddControllersWithViews();
 
+            //add in connection string to link up with the sqlite database
+
             services.AddDbContext<tourGroupContext>(options =>
             {
                options.UseSqlite(Configuration["ConnectionStrings:tourGroupConnection"]);
@@ -60,6 +62,7 @@ namespace IS413_Temple_Signup_ZS
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            //Create Seeded Database
             SeedData.EnsurePopulated(app);
         }
     }

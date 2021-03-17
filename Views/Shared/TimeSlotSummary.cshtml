@@ -4,20 +4,30 @@
 @{
 }
 @model timeSlot
-<!--Dynamically input appropriate values from each Book entry by reference to the database-->
+<!--Dynamically input appropriate values from each possible time slots by reference to the database-->
 <tr id="highlight">
     <td>@Model.scheduleInfo.Month / @Model.scheduleInfo.Day / @Model.scheduleInfo.Year</td>
-    <td>@Model.scheduleInfo.Hour</td>
+    <td>@Model.scheduleInfo.ToShortTimeString()</td>
     <td>
-        @*<form id="@Model.BookId" asp-page="/BookPurchase" method="post">
-            <input type="hidden" asp-for="BookId" />
-            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-            <span class="card-text p-1">
-                @Model.Title
-                <button type="submit" class="btn-success btn-sm pull-right">
-                    Buy Book
-                </button>
-            </span>
-        </form>*@
+        <!--loops through and adds a button to the table of when to add for time slots-->
+        @if(@Model.availablility == true)
+        { 
+            <form id="@Model.slotID" asp-page="/Home/SignUpForm" method="post">
+                <input type="hidden" asp-for="slotID" />
+                <input type="hidden" name="slotID" value="@Model.slotID" />
+                <input type="hidden" name="scheduleInfo" value="@Model.scheduleInfo" />
+                <span class="card-text p-1">
+                    <button type="submit" class="btn-success btn-sm pull-right">
+                        Schedule Session
+                    </button>
+                </span>
+            </form>
+        }
+        
+        <!--If the time slot is not available then display it as not available rather than giving a signup button-->
+        else
+        {
+            <p class="bg-danger">Time Slot Taken</p>
+        }
     </td>
 </tr>

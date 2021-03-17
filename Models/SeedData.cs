@@ -20,7 +20,7 @@ namespace IS413_Temple_Signup_ZS.Models
                 context.Database.Migrate();
             }
 
-            //If database does not have any books in it then populate it with the following data
+            //If database does not have any time slots in it then populate it with the following data
             if (!context.timeSlots.Any())
             {
                 context.timeSlots.AddRange(

@@ -1,35 +1,50 @@
 ﻿@{
     ViewData["Title"] = "Sign Up Form";
 }
-@model IS413_Temple_Signup_ZS.Models.tourGroup
+@model IS413_Temple_Signup_ZS.Models.ViewModels.requestApptVM
 
 <div class="text-center">
     <h1 class="display-4">Sign Up Form</h1>
 </div>
 
+<!--Div Tag to show the user what time their appointment is being set up for-->
+<div>
+    <h5>Schedule your appointment for @Model.timeSlot.scheduleInfo</h5>
+</div>
+
+<!--Form that the user enters info into and submits. It includes hidden items that are passed in with the form to dynamically
+    assign data from the timeSlot passed-in object to the form and the database it will eventually update
+    -->
 <form asp-action="SignUpForm" method="post">
-    <label asp-for="groupName">
+    <input asp-for="timeSlot.scheduleInfo" type="hidden" value="@Model.timeSlot.scheduleInfo" />
+    <input asp-for="timeSlot.availablility" type="hidden" value="false" />
+    <input asp-for="timeSlot.slotID" type="hidden" value="@Model.timeSlot.slotID" />
+    <input asp-for="tourGroup.tourTime" type="hidden" value="@Model.timeSlot.scheduleInfo.ToString()" />
+    
+    @* Inputs for all of the group information *@
+    <label asp-for="tourGroup.groupName">
         Name of Group
     </label>
-    <input type="text" asp-for="groupName" />
-
-    <label asp-for="groupSize">
+    <input type="text" asp-for="tourGroup.groupName" />
+    <br />
+    <label asp-for="tourGroup.groupSize">
         Size of Group
     </label>
-    <input type="text" asp-for="groupSize" />
-
-    <label asp-for="emailAddress">
+    <input type="text" asp-for="tourGroup.groupSize" />
+    <br />
+    <label asp-for="tourGroup.emailAddress">
         Email Address
     </label>
-    <input type="text" asp-for="emailAddress" />
-
-    <label asp-for="phoneNumber">
+    <input type="text" asp-for="tourGroup.emailAddress" />
+    <br/>
+    <label asp-for="tourGroup.phoneNumber">
         Phone Number (Optional)
     </label>
-    <input type="text" asp-for="phoneNumber" />
-
+    <input type="text" asp-for="tourGroup.phoneNumber" />
+    <br />
     <button type="submit" id="button">Submit it</button>
 
 </form>
 
+@* validation *@
 <div asp-validation-summary="All"></div>

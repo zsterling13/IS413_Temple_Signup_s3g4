@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IS413_Temple_Signup_ZS.Migrations
 {
     [DbContext(typeof(tourGroupContext))]
-    [Migration("20210316172318_Initial")]
+    [Migration("20210317194604_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,6 +53,9 @@ namespace IS413_Temple_Signup_ZS.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("phoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("tourTime")
                         .HasColumnType("TEXT");
 
                     b.HasKey("groupID");
