@@ -14,13 +14,13 @@ namespace IS413_Temple_Signup_ZS.Models
         [Key, Required]
         public int groupID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Group Name is required")]
         public string groupName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "woops") , Range(1, 100, ErrorMessage = "Please enter a valid integer (1,2,3,4, etc.) between 1 and 100 for the group size. It is required")]
         public int groupSize { get; set; }
 
-        [Required, EmailAddress]
+        [Required(ErrorMessage = "Email Address is required"), EmailAddress(ErrorMessage = "Not a valid email address")]
         public string emailAddress { get; set; }
 
         [RegularExpression("[0-9]{3}-[0-9]{3}-[0-9]{4}", ErrorMessage = "Please enter the phone number in ###-###-#### format")]
