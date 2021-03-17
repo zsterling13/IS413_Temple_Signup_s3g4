@@ -17,7 +17,7 @@ namespace IS413_Temple_Signup_ZS.Models
         [Required(ErrorMessage = "Group Name is required")]
         public string groupName { get; set; }
 
-        [Required(ErrorMessage = "woops") , Range(1, 100, ErrorMessage = "Please enter a valid integer (1,2,3,4, etc.) between 1 and 100 for the group size. It is required")]
+        [Required(ErrorMessage = "Group size is required") , Range(1, 100, ErrorMessage = "Please enter a valid integer (1,2,3,4, etc.) between 1 and 100 for the group size. It is required")]
         public int groupSize { get; set; }
 
         [Required(ErrorMessage = "Email Address is required"), EmailAddress(ErrorMessage = "Not a valid email address")]
