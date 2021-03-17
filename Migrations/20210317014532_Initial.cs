@@ -16,7 +16,8 @@ namespace IS413_Temple_Signup_ZS.Migrations
                     groupName = table.Column<string>(type: "TEXT", nullable: false),
                     groupSize = table.Column<int>(type: "INTEGER", nullable: false),
                     emailAddress = table.Column<string>(type: "TEXT", nullable: false),
-                    phoneNumber = table.Column<string>(type: "TEXT", nullable: true)
+                    phoneNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    tourTime = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

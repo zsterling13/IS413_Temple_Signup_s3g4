@@ -23,7 +23,6 @@ namespace IS413_Temple_Signup_ZS.Models
         [RegularExpression("[0-9]{3}-[0-9]{3}-[0-9]{4}")]
         public string phoneNumber { get; set; }
 
-        //[Required]
-        //public DateTime tourTime { get; set; }
+        public string tourTime { get; set; }
     }
 }

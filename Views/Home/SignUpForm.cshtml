@@ -1,32 +1,41 @@
 ﻿@{
     ViewData["Title"] = "Sign Up Form";
 }
-@model IS413_Temple_Signup_ZS.Models.tourGroup
+@model IS413_Temple_Signup_ZS.Models.ViewModels.requestApptVM
 
 <div class="text-center">
     <h1 class="display-4">Sign Up Form</h1>
 </div>
 
+<div>
+    <h3>Please Work!</h3>
+    <h5>
+        Schedule your appointment for @Model.timeSlot.scheduleInfo
+    </h5>
+</div>
+
 <form asp-action="SignUpForm" method="post">
-    <label asp-for="groupName">
+    <input asp-for="tourGroup.tourTime" type="hidden" value="@Model.timeSlot.scheduleInfo.ToString()" />
+
+    <label asp-for="tourGroup.groupName">
         Name of Group
     </label>
-    <input type="text" asp-for="groupName" />
+    <input type="text" asp-for="tourGroup.groupName" />
 
-    <label asp-for="groupSize">
+    <label asp-for="tourGroup.groupSize">
         Size of Group
     </label>
-    <input type="text" asp-for="groupSize" />
+    <input type="text" asp-for="tourGroup.groupSize" />
 
-    <label asp-for="emailAddress">
+    <label asp-for="tourGroup.emailAddress">
         Email Address
     </label>
-    <input type="text" asp-for="emailAddress" />
+    <input type="text" asp-for="tourGroup.emailAddress" />
 
-    <label asp-for="phoneNumber">
+    <label asp-for="tourGroup.phoneNumber">
         Phone Number (Optional)
     </label>
-    <input type="text" asp-for="phoneNumber" />
+    <input type="text" asp-for="tourGroup.phoneNumber" />
 
     <button type="submit" id="button">Submit it</button>
 
