@@ -9,13 +9,15 @@
 
 <div>
     <h3>Please Work!</h3>
-    <h5>
-        Schedule your appointment for @Model.timeSlot.scheduleInfo
-    </h5>
+    <h5>Schedule your appointment for @Model.timeSlot.scheduleInfo</h5>
 </div>
 
 <form asp-action="SignUpForm" method="post">
-    <input asp-for="tourGroup.tourTime" type="hidden" value="@Model.timeSlot.scheduleInfo.ToString()" />
+    @*<input asp-for="tourGroup.tourTime" type="hidden" value="@Model.timeSlot.scheduleInfo.ToString()" />*@
+    <input asp-for="timeSlot.scheduleInfo" type="hidden" value="@Model.timeSlot.scheduleInfo" />
+    <input asp-for="timeSlot.availablility" type="hidden" value="false" />
+    <input asp-for="timeSlot.slotID" type="hidden" value="@Model.timeSlot.slotID" />
+    <input asp-for="tourGroup.tourTime" type="hidden" value="@Model.timeSlot.ToString()" />
 
     <label asp-for="tourGroup.groupName">
         Name of Group

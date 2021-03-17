@@ -43,15 +43,24 @@ namespace IS413_Temple_Signup_ZS.Controllers
             {
                 //submittedForm.tourGroup.tourTime = submittedForm.timeSlot.scheduleInfo;
 
+                //string test2 = "(from p in _context.timeSlots where p.scheduleInfo.ToString() ==" + submittedForm.tourGroup.tourTime + "select p).SingleOrDefault();";
+
                 _context.Groups.Add(submittedForm.tourGroup);
                 //_context.timeSlots.
                 //new timeSlot pleaseWork = _context.timeSlots.Where(p => p.slotID == submittedForm.timeSlot.slotID).Take(1);
                 
                 _context.SaveChanges();
 
-                var query = _context.timeSlots.Where(p => p.slotID == submittedForm.timeSlot.slotID).Single();
+                //timeSlot test = (from p in _context.timeSlots where p.slotID == 5 select p).SingleOrDefault();
 
-                query.availablility = false;
+                IQueryable<timeSlot> test = _context.timeSlots.Where(p => p.slotID == submittedForm.timeSlot.slotID);
+
+                //test.SingleOrDefault();
+
+                foreach(var x in test)
+                {
+                    x.availablility = false;
+                }
 
                 _context.SaveChanges();
 
