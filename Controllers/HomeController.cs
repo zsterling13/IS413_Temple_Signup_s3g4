@@ -77,7 +77,7 @@ namespace IS413_Temple_Signup_ZS.Controllers
             }
             else
             { 
-                return View();
+                return View(submittedForm);
             }
         }
 
@@ -90,6 +90,7 @@ namespace IS413_Temple_Signup_ZS.Controllers
         [HttpPost]
         public IActionResult SlotAvailability(timeSlot sesTime)
         {
+
             return View("SignUpForm", new requestApptVM
             {
                 timeSlot = sesTime

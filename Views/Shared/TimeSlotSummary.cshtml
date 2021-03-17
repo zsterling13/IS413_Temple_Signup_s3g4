@@ -9,7 +9,7 @@
     <td>@Model.scheduleInfo.Month / @Model.scheduleInfo.Day / @Model.scheduleInfo.Year</td>
     <td>@Model.scheduleInfo.ToShortTimeString()</td>
     <td>
-        @if( @Model.availablility == true)
+        @if(@Model.availablility == true)
         { 
             <form id="@Model.slotID" asp-page="/Home/SignUpForm" method="post">
                 <input type="hidden" asp-for="slotID" />
