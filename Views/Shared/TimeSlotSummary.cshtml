@@ -10,8 +10,8 @@
     <td>@Model.scheduleInfo.ToShortTimeString()</td>
     <td>
         <!--loops through and adds a button to the table of when to add for time slots-->
-        @if(@Model.availablility == true)
-        { 
+        @if (@Model.availablility == true)
+        {
             <form id="@Model.slotID" asp-page="/Home/SignUpForm" method="post">
                 <input type="hidden" asp-for="slotID" />
                 <input type="hidden" name="slotID" value="@Model.slotID" />
@@ -23,8 +23,8 @@
                 </span>
             </form>
         }
-        
-        <!--If the time slot is not available then display it as not available rather than giving a signup button-->
+
+        @*If the time slot is not available then display it as not available rather than giving a signup button*@
         else
         {
             <p class="bg-danger">Time Slot Taken</p>
